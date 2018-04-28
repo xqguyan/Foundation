@@ -117,6 +117,7 @@ namespace XiangQiu.Foundation.Core.EntityShare
         protected object GetValue(string colName)
         {
             InitValueCache();
+
             if (!lstValues.ContainsKey(colName.ToLower()))
                 return null;
             return lstValues[colName.ToLower()];
