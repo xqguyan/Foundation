@@ -1,0 +1,12 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ import namespace="System.Collections.Generic" #>
+Text Template Host Test  
+<# 
+    List<int> lst = new List<int>();
+    for (int i=0; i<3; i++)  
+    {  
+        lst.Add(i*i);
+        WriteLine("This is a test");  
+    }  
+    lst.ForEach(E=>WriteLine("HHHH:"+E.ToString()));
+#>  
