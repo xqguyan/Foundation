@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace XiangQiu.Foundation.Core.EntityShare
     public class SqlInfo
     {
         public string Sql { get; set; }
-        public List<SqlParameter> Parameter { get; } = new List<SqlParameter>();
+        public List<DbParameter> Parameter { get; } = new List<DbParameter>();
 
         public override string ToString()
         {

@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XiangQiu.Foundation.Core.XQUtils</name>
+    </assembly>
+    <members>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.UINTRegular">
+            <summary>
+            正整数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.INTRegular">
+            <summary>
+            整数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.NegativeINTRegular">
+            <summary>
+            负整数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.UFloatRegular">
+            <summary>
+            正浮点数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.NFloatRegular">
+            <summary>
+            负浮点数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.FloatRegular">
+            <summary>
+            浮点数表达式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.DateRegular">
+            <summary>
+            日期表达式yyyy-MM-dd,其中包含了闰年和2月等的情况处理
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.TimeRegular">
+            <summary>
+            时间表达式yyyy-MM-dd HH:mm
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.LongTimeRegular">
+            <summary>
+            时间表达式yyyy-MM-dd HH:mm:ss,其中包含了闰年和2月等的情况处理
+            </summary>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsUIntData(System.Object)">
+            <summary>
+            是否正整数
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsIntData(System.Object)">
+            <summary>
+            是否整数
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsNIntData(System.Object)">
+            <summary>
+            是否负整数
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsUFloatData(System.Object)">
+            <summary>
+            是否正浮点数表达式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsNFloatData(System.Object)">
+            <summary>
+            是否负浮点数表达式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsFloatData(System.Object)">
+            <summary>
+            是否浮点数表达式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsDateData(System.Object)">
+            <summary>
+            是否日期表达式 yyyy-MM-dd
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsTimeData(System.Object)">
+            <summary>
+            是否时间表达式 yyyy-MM-dd hh:mm
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.DataUtils.RegexHelper.IsLongTimeData(System.Object)">
+            <summary>
+            是否长时间格式表达式 yyyy-MM-dd hh:mm:ss
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.ZipHelper.Encode``1(``0)">
+            <summary>
+            使用Lzma算法压缩至字节流
+            </summary>
+            <typeparam name="Data"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.ZipHelper.Encodes``1(System.Collections.Generic.List{``0})">
+            <summary>
+            使用Lzma算法压缩集合至字节流
+            </summary>
+            <typeparam name="Data"></typeparam>
+            <param name="datas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.ZipHelper.Decode``1(System.Byte[])">
+            <summary>
+            使用Lzma算法从字节流解压缩为数据对象
+            </summary>
+            <typeparam name="Data"></typeparam>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.XQUtils.ZipHelper.Decodes``1(System.Byte[])">
+            <summary>
+            使用Lzma算法从字节流解压缩为集合
+            </summary>
+            <typeparam name="Data"></typeparam>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

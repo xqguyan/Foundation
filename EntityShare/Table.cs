@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using XiangQiu.Foundation.Core.EntityShare.EntityAttribute;
 using XiangQiu.Foundation.Core.XQUtils;
 
@@ -197,7 +198,7 @@ namespace XiangQiu.Foundation.Core.EntityShare
         #endregion
         #endregion
 
-        #region 消炎数据
+        #region 校验数据
         public void CheckData()
         {
             StoreMode = StoreMode.Entity;
@@ -206,7 +207,27 @@ namespace XiangQiu.Foundation.Core.EntityShare
                 //item
             }
         }
-        #endregion 
+        #endregion
+
+        #region SQL
+        /// <summary>
+        /// 查询SQL
+        /// </summary>
+        /// <returns></returns>
+        public string GetQuerySql()
+        {
+            StringBuilder sbSql = new StringBuilder();
+            sbSql.Append(" SELECT ");
+            sbSql.Append(string.Join(",", Columns.Keys));
+            sbSql.Append(" FROM ");
+
+            Entity entity = new Entity();
+            entity.Table = this;
+            sbSql.Append(entity.TableName);
+
+            return sbSql.ToString();
+        }
+        #endregion
     }
 
     public interface ITable

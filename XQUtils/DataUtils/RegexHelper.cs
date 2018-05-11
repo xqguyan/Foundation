@@ -49,7 +49,7 @@ namespace XiangQiu.Foundation.Core.XQUtils.DataUtils
         public static bool RegexData(object value, string checkRegular)
         {
             if (DataHelper.IsNull(value))
-                return true;
+                return false;
             Regex m_Regex = new Regex(checkRegular);
             return m_Regex.IsMatch(value.ToString());
         }

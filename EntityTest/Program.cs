@@ -10,52 +10,61 @@ namespace EntityTest
     {
         static void Main(string[] args)
         {
-            Table<T_ReportInfo> tab = new Table<T_ReportInfo>();
-            DataTable dtData = new DataTable();
-            dtData.Columns.Add("ID");
-            dtData.Columns.Add("Name");
-            dtData.Columns.Add("Name2");
+            int? v = 1234;
+            Console.WriteLine(v.ToString());
+            v = null;
+            Console.WriteLine("----" + DataHelper.Convert2Int(v).ToString() + "-----");
+            Console.WriteLine(v.ToString());
+            Console.ReadKey();
+            //Table<T_ReportInfo> tab = new Table<T_ReportInfo>();
+            //DataTable dtData = new DataTable();
+            //dtData.Columns.Add("ID");
+            //dtData.Columns.Add("Name");
+            //dtData.Columns.Add("Name2");
 
-            DataRow row = dtData.NewRow();
-            row["ID"] = "11";
-            row["Name"] = "AA";
-            row["Name2"] = "AAA";
-            dtData.Rows.Add(row);
+            //DataRow row = dtData.NewRow();
+            //row["ID"] = "11";
+            //row["Name"] = "AA";
+            //row["Name2"] = "AAA";
+            //dtData.Rows.Add(row);
 
-            row = dtData.NewRow();
-            row["ID"] = "22";
-            row["Name"] = "BB";
-            row["Name2"] = "BBB";
-            dtData.Rows.Add(row);
+            //row = dtData.NewRow();
+            //row["ID"] = "22";
+            //row["Name"] = "BB";
+            //row["Name2"] = "BBB";
+            //dtData.Rows.Add(row);
 
-            tab.DataTable = dtData;
-            tab.StoreMode = StoreMode.Entity;
-            tab.StoreMode = StoreMode.EntityByte;
-            tab.StoreMode = StoreMode.TableByte;
-            tab.StoreMode = StoreMode.Table;
+            //tab.DataTable = dtData;
+            //tab.StoreMode = StoreMode.Entity;
+            //tab.StoreMode = StoreMode.EntityByte;
+            //tab.StoreMode = StoreMode.TableByte;
+            //tab.StoreMode = StoreMode.Table;
 
-            //foreach (var item in tab.Data)
-            //{
-            //    Console.WriteLine(item.GetQuerySql());
-            //    Console.WriteLine(item.GetInsertSql());
-            //    Console.WriteLine(item.GetDelSql());
-            //    Console.WriteLine(item.GetUpDateSql());
-            //}
+            ////foreach (var item in tab.Data)
+            ////{
+            ////    Console.WriteLine(item.GetQuerySql());
+            ////    Console.WriteLine(item.GetInsertSql());
+            ////    Console.WriteLine(item.GetDelSql());
+            ////    Console.WriteLine(item.GetUpDateSql());
+            ////}
 
-            Console.Read();
+            //Console.Read();
         }
     }
     [Table(TableName = nameof(T_ReportInfo))]
     [Serializable]
     public class T_ReportInfo : EntityBase
     {
-        [Column(ColumnName = nameof(ID), Describe = "编号",
-            IsAllowNull = false, IsPrimaryKey = true, SqlDBType = SqlDbType.Int)]
+        [Column(ColumnName = nameof(ID),
+            Describe = "编号",
+            IsAllowNull = false,
+            IsPrimaryKey = true,
+            SqlDBType = SqlDbType.Int)]
         public string ID
         {
             get
             {
-                return DataHelper.Convert2String(GetValue(nameof(ID)));
+                return DataHelper.Convert2Int(GetValue(nameof(ID))).ToString();
             }
             set
             {

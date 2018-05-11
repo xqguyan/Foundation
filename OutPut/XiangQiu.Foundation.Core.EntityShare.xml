@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XiangQiu.Foundation.Core.EntityShare</name>
+    </assembly>
+    <members>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.EditNode">
+            <summary>
+            实体编辑模式
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.EntityShare.EditNode.None">
+            <summary>
+            未变化
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.EntityShare.EditNode.New">
+            <summary>
+            新增加
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.EntityShare.EditNode.Edit">
+            <summary>
+            编辑
+            </summary>
+        </member>
+        <member name="F:XiangQiu.Foundation.Core.EntityShare.EditNode.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute">
+            <summary>
+            数据表列特性类,存放数据库表的每一列的相关属性
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.ColumnName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.IsPrimaryKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.IsAllowNull">
+            <summary>
+            允许为空
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.DefaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.MaxLength">
+            <summary>
+            字符长度
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.Scale">
+            <summary>
+            小数位
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.IsIdentity">
+            <summary>
+            是否自增列
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.OrderBy">
+            <summary>
+            是否OrderBy列
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.SqlDBType">
+            <summary>
+            在数据库中的数据类型 
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.ColumnAttribute.NetType">
+            <summary>
+            在.Net中的数据类型 
+            </summary>
+        </member>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.TableAttribute">
+            <summary>
+            数据表特性类,存放数据库表的每一列的相关属性
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityAttribute.TableAttribute.TableName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.EntityBase">
+            <summary>
+            数据实体基类
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityBase.Table">
+            <summary>
+            对应的表格
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityBase.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityBase.EditNode">
+            <summary>
+            实体编辑模式
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntityBase.Item(System.String)">
+            <summary>
+            获取或设置对应列的值
+            </summary>
+            <param name="colName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.InitValueCache">
+            <summary>
+            初始化值缓存
+            </summary>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.SetValue(System.String,System.Object)">
+            <summary>
+            设置值
+            </summary>
+            <param name="colName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetValue(System.String)">
+            <summary>
+            获取值
+            </summary>
+            <param name="colName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetQuerySql">
+            <summary>
+            查询SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetInsertSql(System.Boolean)">
+            <summary>
+            插入SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetDelSql(System.Boolean)">
+            <summary>
+            删除SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetUpDateSql(System.Boolean)">
+            <summary>
+            更新SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetPrimaryKey">
+            <summary>
+            获取主键列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.EntitySet`1">
+            <summary>
+            实体集合
+            </summary>
+            <typeparam name="Entity"></typeparam>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.EntitySet`1.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XiangQiu.Foundation.Core.EntityShare.Table`1">
+            <summary>
+            数据表类
+            </summary>
+            <typeparam name="Entity"></typeparam>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.Table`1.StoreMode">
+            <summary>
+            存储模式,根据模式的不同，在DataEntity，DataTable，DataBuffer中存储数据
+            需要类型转换时，改变模式即可，默认为数据表DataTable
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.Table`1.Columns">
+            <summary>
+            所有列
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.Table`1.DataEntitys">
+            <summary>
+            数据实体集合
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.Table`1.DataTable">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="P:XiangQiu.Foundation.Core.EntityShare.Table`1.DataBuffer">
+            <summary>
+            字节数据
+            </summary>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.Table`1.InitColumns">
+            <summary>
+            初始化列集合
+            </summary>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.Table`1.StoreModeChanged(XiangQiu.Foundation.Core.EntityShare.StoreMode,XiangQiu.Foundation.Core.EntityShare.StoreMode)">
+            <summary>
+            存储模式变化
+            </summary>
+            <param name="sourceMode">当前存储模式</param>
+            <param name="popMode">转换后的存储模式</param>
+        </member>
+    </members>
+</doc>

@@ -16,10 +16,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\OutPut\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\OutPut\XiangQiu.Foundation.Core.DBManager.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,8 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO.cs" />
+    <Compile Include="DAOManager.cs" />
+    <Compile Include="DAOMSSql.cs" />
     <Compile Include="DbContext.cs" />
+    <Compile Include="DBManager.cs" />
+    <Compile Include="DBManager_SqlImpl.cs" />
+    <Compile Include="DBPool.cs" />
+    <Compile Include="DbSource.cs" />
+    <Compile Include="EDBType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityShare\EntityShare.csproj">
+      <Project>{1d103a03-9784-489b-971a-2883fdcc5e0f}</Project>
+      <Name>EntityShare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XQLogger\XQLogger.csproj">
+      <Project>{7196c3ef-564c-429e-a7ed-78f966fc1490}</Project>
+      <Name>XQLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

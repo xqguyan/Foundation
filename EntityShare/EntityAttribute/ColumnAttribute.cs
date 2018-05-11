@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace XiangQiu.Foundation.Core.EntityShare.EntityAttribute
 {
-    [AttributeUsage(AttributeTargets.Property)]
     /// <summary>
     /// 数据表列特性类,存放数据库表的每一列的相关属性
     /// </summary>
     [Serializable()]
+    [AttributeUsage(AttributeTargets.Property)]
     public class ColumnAttribute : Attribute
     {
         /// <summary>
@@ -55,4 +56,39 @@ namespace XiangQiu.Foundation.Core.EntityShare.EntityAttribute
         /// </summary>
         public Type NetType { get; set; } = typeof(string);
     }
+
+    //public class CheckInfo<T> where T:struct
+    //{
+    //    public CheckType CheckMode { get; set; } = CheckType.None;
+    //    public List<T> ListValues { get; set; }
+    //    public T StartValue { get; set; }
+    //    public T EndValue { get; set; }
+    //}
+    //public enum CheckType
+    //{
+    //    /// <summary>
+    //    /// 无
+    //    /// </summary>
+    //    None = 0,
+    //    /// <summary>
+    //    /// 范围中存在
+    //    /// </summary>
+    //    In = 1,
+    //    /// <summary>
+    //    /// （）开区间
+    //    /// </summary>
+    //    OpenSection = 2,
+    //    /// <summary>
+    //    /// []闭区间
+    //    /// </summary>
+    //    CloseSection = 3,
+    //    /// <summary>
+    //    /// （]左开右闭区间
+    //    /// </summary>
+    //    OpenSectionClose = 4,
+    //    /// <summary>
+    //    /// [)左闭右开区间
+    //    /// </summary>
+    //    CloseSectionOpen = 5,
+    //}
 }

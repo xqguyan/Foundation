@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -125,19 +126,6 @@ namespace XiangQiu.Foundation.Core.EntityShare
         #endregion
 
         #region Sql
-        /// <summary>
-        /// 查询SQL
-        /// </summary>
-        /// <returns></returns>
-        public string GetQuerySql()
-        {
-            StringBuilder sbSql = new StringBuilder();
-            sbSql.Append(" SELECT ");
-            sbSql.Append(string.Join(",", Table.Columns.Keys));
-            sbSql.Append(" FROM ");
-            sbSql.Append(TableName);
-            return sbSql.ToString();
-        }
         /// <summary>
         /// 插入SQL
         /// </summary>
