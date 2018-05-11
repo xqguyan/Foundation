@@ -47,7 +47,7 @@ namespace XiangQiu.Foundation.Core.XQUtils
                         }
                         catch (SerializationException ex)
                         {
-                            Logger.GetInstance().Write("对象" + D + "未能序列化！");
+                            LogHelper.GetInstance().Write("对象" + D + "未能序列化！");
                         }
                     }
                     );
@@ -118,7 +118,7 @@ namespace XiangQiu.Foundation.Core.XQUtils
                         }
                         catch (SerializationException ex)
                         {
-                            Logger.GetInstance().Write("反序列化失败！");
+                            LogHelper.GetInstance().Write("反序列化失败！");
                         }
                         if (data == null)
                             break;

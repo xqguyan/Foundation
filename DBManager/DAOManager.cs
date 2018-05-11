@@ -116,11 +116,11 @@ namespace XiangQiu.Foundation.Core.DBManager
             m_lstUsingDAO = new Dictionary<Thread, DAOUsing>(MaxDbAccessNum);
 
             DAO db = null;
-            Logger.GetInstance().Write("      注册数据库服务器:[" + DbInitSource.DataServer + "].[" + DbInitSource.DataBase + "]");
-            Logger.GetInstance().Write("          数据库:" + DbInitSource.DataBase + "共创建" + MaxDbAccessNum.ToString() + "个连接；");
-            Logger.GetInstance().Write("              数据库类型:" + DbInitSource.DBType + ";是否集成系统安全:" + DbInitSource.InteSys.ToString());
+            LogHelper.GetInstance().Write("      注册数据库服务器:[" + DbInitSource.DataServer + "].[" + DbInitSource.DataBase + "]");
+            LogHelper.GetInstance().Write("          数据库:" + DbInitSource.DataBase + "共创建" + MaxDbAccessNum.ToString() + "个连接；");
+            LogHelper.GetInstance().Write("              数据库类型:" + DbInitSource.DBType + ";是否集成系统安全:" + DbInitSource.InteSys.ToString());
             if (!DbInitSource.InteSys)
-                Logger.GetInstance().Write("              用户口令:" + DbInitSource.UserId + ";密码:" + DbInitSource.Password);
+                LogHelper.GetInstance().Write("              用户口令:" + DbInitSource.UserId + ";密码:" + DbInitSource.Password);
             try
             {
                 for (int i = 1; i <= MaxDbAccessNum; ++i)
@@ -134,7 +134,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                     db = null;
                 }
 
-                Logger.GetInstance().Write("          数据库:" + DbInitSource.DataBase + "访问集已打开！");
+                LogHelper.GetInstance().Write("          数据库:" + DbInitSource.DataBase + "访问集已打开！");
 
                 //启动检查数据库访问对象使用超时的线程
                 if (m_InspectUsingDbThread == null)
@@ -146,7 +146,7 @@ namespace XiangQiu.Foundation.Core.DBManager
             }
             catch (Exception ex)
             {
-                Logger.GetInstance().Write("   数据库:" + DbInitSource.DataBase + "访问集打开失败！" + ex.Message);
+                LogHelper.GetInstance().Write("   数据库:" + DbInitSource.DataBase + "访问集打开失败！" + ex.Message);
             }
         }
         #endregion
@@ -197,7 +197,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                 if (m_lstFreeDAO == null)
                 {
                     Monitor.PulseAll(m_SynDbInspect);
-                    Logger.GetInstance().Write("数据库访问集未被建立");
+                    LogHelper.GetInstance().Write("数据库访问集未被建立");
                     throw (new Exception("数据库访问集未被建立"));
                 }
 
@@ -205,7 +205,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                     && m_lstUsingDAO[Thread.CurrentThread] != null)
                 {
                     Monitor.PulseAll(m_SynDbInspect);
-                    Logger.GetInstance().Write("当前数据库访问对象无空闲对象");
+                    LogHelper.GetInstance().Write("当前数据库访问对象无空闲对象");
                     throw (new Exception("当前数据库访问对象无空闲对象"));
                 }
 
@@ -226,7 +226,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                 if (m_lstFreeDAO.Count == 0)
                 {
                     Monitor.PulseAll(m_SynDbInspect);
-                    Logger.GetInstance().Write("当前数据库访问集中没有可用的数据库访问对象，请求超时");
+                    LogHelper.GetInstance().Write("当前数据库访问集中没有可用的数据库访问对象，请求超时");
                     throw (new Exception("当前数据库访问集中没有可用的数据库访问对象，请求超时"));
                 }
 
@@ -234,7 +234,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                 m_lstFreeDAO.RemoveAt(0);
                 m_lstUsingDAO.Add(Thread.CurrentThread, new DAOUsing(db));
                 db.CallerThread = Thread.CurrentThread;
-                Logger.GetInstance().Write("DBSet:" + SetName + "; GetThread:" + Thread.CurrentThread.GetHashCode().ToString());
+                LogHelper.GetInstance().Write("DBSet:" + SetName + "; GetThread:" + Thread.CurrentThread.GetHashCode().ToString());
                 Monitor.PulseAll(m_SynDbInspect);
                 return db;
             }
@@ -254,9 +254,9 @@ namespace XiangQiu.Foundation.Core.DBManager
 
                 dbUsing = (DAOUsing)m_lstUsingDAO[Thread.CurrentThread];
                 if (dbUsing != null)
-                    Logger.GetInstance().Write("DBSet:" + SetName + "db succeed,ReturnThread:" + Thread.CurrentThread.GetHashCode().ToString());
+                    LogHelper.GetInstance().Write("DBSet:" + SetName + "db succeed,ReturnThread:" + Thread.CurrentThread.GetHashCode().ToString());
                 else
-                    Logger.GetInstance().Write("DBSet:" + SetName + "db Failed,ReturnThread:" + Thread.CurrentThread.GetHashCode().ToString());
+                    LogHelper.GetInstance().Write("DBSet:" + SetName + "db Failed,ReturnThread:" + Thread.CurrentThread.GetHashCode().ToString());
                 if (dbUsing != null)
                 {
                     dbUsing.Db.CallerThread = null;
@@ -301,13 +301,13 @@ namespace XiangQiu.Foundation.Core.DBManager
                                 m_lstUsingDAO[E].Db.CallerThread = null;
                                 m_lstUsingDAO.Remove(E);
                                 m_lstFreeDAO.Add(m_lstUsingDAO[E].Db);
-                                Logger.GetInstance().Write("强制回收数据库访问对象");
+                                LogHelper.GetInstance().Write("强制回收数据库访问对象");
                             });
                         }
                     }
                     catch (Exception ex)
                     {
-                        Logger.GetInstance().Write("DbAccessSet Error:" + ex.Message);
+                        LogHelper.GetInstance().Write("DbAccessSet Error:" + ex.Message);
                     }
                     Monitor.PulseAll(m_SynDbInspect);
                 }

@@ -129,7 +129,7 @@ namespace XiangQiu.Foundation.Core.DBManager
             int index;
             if (!m_lstDAOCache.ContainsKey(sSetName))
             {
-                Logger.GetInstance().Write("不存在定义的数据源：" + sSetName);
+                LogHelper.GetInstance().Write("不存在定义的数据源：" + sSetName);
                 throw new Exception("不存在定义的数据源：" + sSetName);
             }
             index = int.Parse(m_lstDAOCache[sSetName].ToString());
@@ -156,7 +156,7 @@ namespace XiangQiu.Foundation.Core.DBManager
             }
             catch (Exception)
             {
-                Logger.GetInstance().Write("数据源：" + sSetName + "重复定义！");
+                LogHelper.GetInstance().Write("数据源：" + sSetName + "重复定义！");
             }
 
             m_lstDAO.Add(ds);
@@ -181,7 +181,7 @@ namespace XiangQiu.Foundation.Core.DBManager
             }
             catch (Exception ex)
             {
-                Logger.GetInstance().Write("数据源：" + sSetName + "重复定义！");
+                LogHelper.GetInstance().Write("数据源：" + sSetName + "重复定义！");
             }
             m_lstDAO.Add(ds);
             ds.SetName = sSetName;
@@ -202,7 +202,7 @@ namespace XiangQiu.Foundation.Core.DBManager
             }
             catch (Exception ex)
             {
-                Logger.GetInstance().Write("数据源：" + sSetName + "重复定义！");
+                LogHelper.GetInstance().Write("数据源：" + sSetName + "重复定义！");
             }
             m_lstDAO.Add(ds);
             ds.SetName = sSetName;

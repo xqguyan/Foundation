@@ -145,12 +145,6 @@
             <param name="colName"></param>
             <returns></returns>
         </member>
-        <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetQuerySql">
-            <summary>
-            查询SQL
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:XiangQiu.Foundation.Core.EntityShare.EntityBase.GetInsertSql(System.Boolean)">
             <summary>
             插入SQL
@@ -231,6 +225,12 @@
             </summary>
             <param name="sourceMode">当前存储模式</param>
             <param name="popMode">转换后的存储模式</param>
+        </member>
+        <member name="M:XiangQiu.Foundation.Core.EntityShare.Table`1.GetQuerySql">
+            <summary>
+            查询SQL
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

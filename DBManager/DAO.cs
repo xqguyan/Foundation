@@ -75,7 +75,7 @@ namespace XiangQiu.Foundation.Core.DBManager
         {
             if (Thread.CurrentThread != m_CallerThread)
             {
-                Logger.GetInstance().Write("无法取得当前线程！");
+                LogHelper.GetInstance().Write("无法取得当前线程！");
                 throw new Exception("无法取得当前线程");
             }
         }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using XiangQiu.Foundation.Core.EntityShare;
 using XiangQiu.Foundation.Core.EntityShare.EntityAttribute;
+using XiangQiu.Foundation.Core.XqExceptions;
+using XiangQiu.Foundation.Core.XQLogger;
 using XiangQiu.Foundation.Core.XQUtils.DataUtils;
 
 namespace EntityTest
@@ -10,9 +13,14 @@ namespace EntityTest
     {
         static void Main(string[] args)
         {
+            ExceptHelps.RegisterOverallexceptionhandling();
             int? v = 1234;
             Console.WriteLine(v.ToString());
+            LogHelper.GetInstance().Write(v.ToString());
+            NewMethod();
             v = null;
+            string sss = null;
+            NewMethod1(sss);
             Console.WriteLine("----" + DataHelper.Convert2Int(v).ToString() + "-----");
             Console.WriteLine(v.ToString());
             Console.ReadKey();
@@ -49,6 +57,22 @@ namespace EntityTest
             ////}
 
             //Console.Read();
+        }
+
+        private static void NewMethod1(string v)
+        {
+            string a = v.ToString();
+        }
+
+        private static void NewMethod()
+        {
+            int a = 1;
+            int b = 0;
+            try { int c = 1 / b; }
+            catch (Exception ex)
+            {
+                LogHelper.GetInstance().Write(ex);
+            }
         }
     }
     [Table(TableName = nameof(T_ReportInfo))]

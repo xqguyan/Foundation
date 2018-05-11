@@ -31,7 +31,7 @@ namespace XiangQiu.Foundation.Core.DBManager
                 sb.Append(ex.Message);
                 sb.Append("\n\r");
                 sb.Append(strSql);
-                Logger.GetInstance().Write(sb.ToString());
+                LogHelper.GetInstance().Write(sb.ToString());
             }
             finally
             {

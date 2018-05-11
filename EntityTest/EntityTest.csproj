@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,14 @@
     <ProjectReference Include="..\EntityShare\EntityShare.csproj">
       <Project>{1d103a03-9784-489b-971a-2883fdcc5e0f}</Project>
       <Name>EntityShare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XqExceptions\XqExceptions.csproj">
+      <Project>{cf8a98a0-ed97-4bca-86ce-0094bb6c48be}</Project>
+      <Name>XqExceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XQLogger\XQLogger.csproj">
+      <Project>{7196c3ef-564c-429e-a7ed-78f966fc1490}</Project>
+      <Name>XQLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\XQUtils\XQUtils.csproj">
       <Project>{51239443-4629-4f52-9456-22dee40ffd22}</Project>
